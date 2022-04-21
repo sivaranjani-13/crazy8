@@ -11,15 +11,15 @@ public class HelperFunction
 	 * @declareCard is the suit declared by the gamers who played eight cards.
 	 * 
 	 * */
-	void gamePlay(List<Card> Deck,gamer1 play1,gamer2 play2) 
+	void gamePlay(List<Card> deck,gamer1 play1,gamer2 play2) 
 	{
 		int i,grade1=0,grade2=0;
 		Card.Suit declareSuit=null;
 		Card topCard;
-		topCard=Deck.get(0);
+		topCard=deck.get(0);
 		System.out.println("Top card has: "+topCard.getRank()+" "+topCard.getSuit());
 		System.out.println(" ");
-		Deck.remove(0);
+		deck.remove(0);
 		int temp=1;
 		while(grade1<200 && grade2<200)
 		{  
@@ -41,22 +41,22 @@ public class HelperFunction
 						i=6;
 				 }
 			  }
-			 if(play1.gamer1Cards.size()==0||Deck.size()==0) 
+			 if(play1.gamer1Cards.size()==0||deck.size()==0) 
 			 {
 				 grade1=play2.getScore(grade1);
 				 System.out.println(" ");
 				 System.out.println("Gamer2 scores:"+grade2);
 			 }
-			 if(play2.gamer2Cards.size()==0||Deck.size()==0) 
+			 if(play2.gamer2Cards.size()==0||deck.size()==0) 
 			 {
 				 grade2=play1.getScore(grade2);
 				 System.out.println("Gamer1 scores:"+grade1);
 				 System.out.println(" ");
 			 }
-			 if(Deck.size()==0) 
+			 if(deck.size()==0) 
 			 {
-				 Deck=Card.getDeck();
-				 Collections.shuffle(Deck);
+				 deck=Card.getdeck();
+				 Collections.shuffle(deck);
 				 //Deck=startReStart(Deck,play1,play2);
 			 }
 		}
@@ -78,19 +78,20 @@ public class HelperFunction
 	 * After each gamer receives seven cards,the number of cards will be reduced from deck.
 	 */
 	
-	List<Card> startReStart(List<Card> Deck, gamer1 play1, gamer2 play2) 
+	List<Card> startReStart(List<Card> deckCard, gamer1 play1, gamer2 play2) 
 	{
-		Deck = Card.getDeck();
-		Collections.shuffle(Deck);
+		List<Card> deck = deckCard;
+		deck = Card.getDeck();
+		Collections.shuffle(deck);
 		List<Card>gamer1 = new ArrayList<>();
 		List<Card>gamer2 = new ArrayList<>();
 		for(int i=0;i<14;i++)
 		{
 			if(i%2==1)
-				gamer1.add(Deck.get(0));
+				gamer1.add(deck.get(0));
 			else
-				gamer2.add(Deck.get(0));
-			Deck.remove(0);
+				gamer2.add(deck.get(0));
+			deck.remove(0);
 		}
 		/*
 		 *getting the cards from the gamers.
@@ -115,21 +116,21 @@ public class HelperFunction
 		}
 		System.out.println("____________________");
 		System.out.println();
-		return Deck;
+		return deck;
 	}
 	/*
 	 * this function is to decide the suit of rank "8".
 	 * When a player plays an "8", they can declare what suit the next player must play to.
 	 * If the player played an "8", this is the suit that they declared.
 	 */
-	private static int forLoop(gamer2 play2,List<Card> Deck,Card topCard, Card.Suit declareCard) 
+	private static int forLoop(gamer2 play2,List<Card> deck,Card topCard, Card.Suit declareCard) 
 	{
 		if(play2.shouldDrawCard(topCard, declareCard)) 
 		{
-			if(Deck.size()!=0) 
+			if(deck.size()!=0) 
 			{
-				play2.receiveCard(Deck.get(0));
-				Deck.remove(0);
+				play2.receiveCard(deck.get(0));
+				deck.remove(0);
 			}
 			return 1;
         }
@@ -146,14 +147,14 @@ public class HelperFunction
 		}
 	}
 
-	private static int forLoop(gamer1 play1,List<Card> Deck,Card topCard, Card.Suit declareCard) 
+	private static int forLoop(gamer1 play1,List<Card> deck,Card topCard, Card.Suit declareCard) 
 	{
 		if(play1.shouldDrawCard(topCard, declareCard)) 
 		{
-			if(Deck.size()!=0) 
+			if(deck.size()!=0) 
 			{
-				play1.receiveCard(Deck.get(0));
-				Deck.remove(0);
+				play1.receiveCard(deck.get(0));
+				deck.remove(0);
 			}
 			return 1;
 		}
