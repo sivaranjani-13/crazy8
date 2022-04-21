@@ -78,19 +78,19 @@ public class HelperFunction
 	 * After each gamer receives seven cards,the number of cards will be reduced from deck.
 	 */
 	
-	List<Card> startReStart(List<Card> Deck, gamer1 play1, gamer2 play2) 
+	List<Card> startReStart(List<Card> Deck1, gamer1 play1, gamer2 play2) 
 	{
-		Deck = Card.getDeck();
-		Collections.shuffle(Deck);
+		Deck1 = Card.getDeck();
+		Collections.shuffle(Deck1);
 		List<Card>gamer1 = new ArrayList<>();
 		List<Card>gamer2 = new ArrayList<>();
 		for(int i=0;i<14;i++)
 		{
 			if(i%2==1)
-				gamer1.add(Deck.get(0));
+				gamer1.add(Deck1.get(0));
 			else
-				gamer2.add(Deck.get(0));
-			Deck.remove(0);
+				gamer2.add(Deck1.get(0));
+			Deck1.remove(0);
 		}
 		/*
 		 *getting the cards from the gamers.
@@ -115,7 +115,7 @@ public class HelperFunction
 		}
 		System.out.println("____________________");
 		System.out.println();
-		return Deck;
+		return Deck1;
 	}
 	/*
 	 * this function is to decide the suit of rank "8".
