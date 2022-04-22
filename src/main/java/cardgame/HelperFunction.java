@@ -13,7 +13,9 @@ public class HelperFunction
 	 * */
 	void gamePlay(List<Card> deck,gamer1 play1,gamer2 play2) 
 	{
-		int i,grade1=0,grade2=0;
+		int i;
+		int grade1=0;
+		int grade2=0;
 		Card.Suit declareSuit=null;
 		Card topCard;
 		topCard=deck.get(0);
@@ -41,19 +43,19 @@ public class HelperFunction
 						i=6;
 				 }
 			  }
-			 if(play1.gamer1Cards.size()==0||deck.size()==0) 
+			 if(play1.gamer1Cards.isEmpty()||deck.isEmpty()) 
 			 {
 				 grade1=play2.getScore(grade1);
 				 System.out.println(" ");
 				 System.out.println("Gamer2 scores:"+grade2);
 			 }
-			 if(play2.gamer2Cards.size()==0||deck.size()==0) 
+			 if(play2.gamer2Cards.isEmpty()||deck.isEmpty()) 
 			 {
 				 grade2=play1.getScore(grade2);
 				 System.out.println("Gamer1 scores:"+grade1);
 				 System.out.println(" ");
 			 }
-			 if(deck.size()==0) 
+			 if(deck.isEmpty()) 
 			 {
 				 deck=Card.getdeck();
 				 Collections.shuffle(deck);
@@ -92,6 +94,7 @@ public class HelperFunction
 			else
 				gamer2.add(deck.get(0));
 			deck.remove(0);
+			i--;
 		}
 		/*
 		 *getting the cards from the gamers.
@@ -151,7 +154,7 @@ public class HelperFunction
 	{
 		if(play1.shouldDrawCard(topCard, declareCard)) 
 		{
-			if(deck.size()!=0) 
+			if(deck.isEmpty()) 
 			{
 				play1.receiveCard(deck.get(0));
 				deck.remove(0);
@@ -174,42 +177,4 @@ public class HelperFunction
 	 }
 }
 
-//Referred code:
-/*for(i=0;i<3;i++) {
-	  if(play2.shouldDrawCard(topCard, declareCard)) 
-	  {
-			if(Deck.size()!=0) 
-			{
-				play2.receiveCard(Deck.get(0));
-				Deck.remove(0);
-          }
-  }
-	  else {
-			topCard=play2.playCard();
-			System.out.println(" ");
-			System.out.println("Top card has: "+topCard.getRank()+" "+topCard.getSuit());
-			System.out.println(" ");
-			if(topCard.getRank()==Card.Rank.EIGHT&&play2.gamer2Cards.size()!=0) {
-				declareCard=play2.declareSuit();
-			}
-			break;
-		}
-	}
-for(i=0;i<3;i++) {
-if(play1.shouldDrawCard(topCard, declareCard)) {
-		if(Deck.size()!=0) {
-			play1.receiveCard(Deck.get(0));
-			Deck.remove(0);
-		}
-	}
-	else {
-		topCard=play1.playCard();
-		System.out.println(" ");
-		System.out.println("Top card has: "+topCard.getRank()+" "+topCard.getSuit());
-		System.out.println(" ");
-		if(topCard.getRank().equals(Card.Rank.EIGHT)&&play1.gamer1Cards.size()!=0) {
-			declareCard=play1.declareSuit();
-		}
-		break;
-	}
-}*/
+//size()!=0//Referred code:
