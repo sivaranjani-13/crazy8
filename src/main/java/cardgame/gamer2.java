@@ -2,7 +2,7 @@ package cardgame;
 
 import java.util.List;
 
-public class gamer2 implements PlayerStrategy{
+public Myclass gamer2 implements PlayerStrategy{
 	List<Card> gamer2Cards;
 	Card topCard;
 	Card.Suit changedSuit;
@@ -43,7 +43,8 @@ public class gamer2 implements PlayerStrategy{
 	
 	
 	public Card playCard() {
-		int max=0,count=0;
+		int max=0;
+		int count=0;
 		Card finalCard=null;
 		if(changedSuit==null) {
 			for(int i=0;i<gamer2Cards.size();i++) {
