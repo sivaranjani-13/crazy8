@@ -1,7 +1,7 @@
 package cardgame;
 import java.util.List;
 import java.util.ArrayList;
-public class game 
+public Myclass game 
 {
 	public static void main(String[] args) 
 	{     
