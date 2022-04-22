@@ -1,6 +1,6 @@
 package cardgame;
 import java.util.List;
-public class gamer1 implements PlayerStrategy
+public Myclass gamer1 implements PlayerStrategy
 {
 	List<Card> gamer1Cards;
 	Card topCard;
