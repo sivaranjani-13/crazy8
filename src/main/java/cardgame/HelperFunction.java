@@ -130,7 +130,7 @@ public class HelperFunction
 	{
 		if(play2.shouldDrawCard(topCard, declareCard)) 
 		{
-			if(deck.size()!=0) 
+			if(deck.isEmpty) 
 			{
 				play2.receiveCard(deck.get(0));
 				deck.remove(0);
@@ -176,5 +176,3 @@ public class HelperFunction
 		
 	 }
 }
-
-//size()!=0//Referred code:
